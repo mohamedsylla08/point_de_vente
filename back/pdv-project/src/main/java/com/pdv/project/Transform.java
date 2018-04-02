@@ -325,8 +325,6 @@ public class Transform {
 		String libelle = elem.getTextContent();
 		Service service = Service.builder().libelle(libelle).build();
 
-		PdvService pdvService = new PdvService(pointDeVente, service);
-
-		return pdvService;
+		return null;
 	}
 }
