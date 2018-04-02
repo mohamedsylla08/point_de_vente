@@ -2,4 +2,4 @@ target/
 .classpath
 .project
 .settings/
-data/elasticsearch/nodes/0/_state/global-85.st
+data/
