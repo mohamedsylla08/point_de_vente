@@ -19,29 +19,29 @@ public class PdvProjectApplication {
 		SpringApplication.run(PdvProjectApplication.class, args);
 	}
 
-	@Component
-	class ProcessXMLFilesRoutes extends RouteBuilder {
-
-		private final Logger LOG = LoggerFactory.getLogger(ProcessXMLFilesRoutes.class);
-
-		@Override
-		public void configure() throws Exception {
-			LOG.info("Extraction des points de vente depuis le repertoire: " + inputDir);
-
-			from("file:///{{files.in}}?antInclude={{files.pattern}}").to("file:///{{files.done}}")
-					.log("Processing file ${file:onlyname}").to("direct:processXML");
-
-			from("direct:processXML").split().tokenizeXML("pdv").streaming().bean("transform")
-					.log(LoggingLevel.INFO, "PDV", "${body}");
-
-			// from("direct:processXML").split().tokenizeXML("pdv").streaming().setHeader("city")
-			// .xpath("/pdv/ville/text()").log("City: ${header.city}");
-
-			// from("direct:processXML").split().tokenizeXML("pdv").streaming().bean("transform",
-			// "toPrice")
-			// .to("jpa:com.pdv.project.model.Ouverture").log("Inserted new City:
-			// ${body.id}");
-		}
-
-	}
+//	@Component
+//	class ProcessXMLFilesRoutes extends RouteBuilder {
+//
+//		private final Logger LOG = LoggerFactory.getLogger(ProcessXMLFilesRoutes.class);
+//
+//		@Override
+//		public void configure() throws Exception {
+//			LOG.info("Extraction des points de vente depuis le repertoire: " + inputDir);
+//
+//			from("file:///{{files.in}}?antInclude={{files.pattern}}").to("file:///{{files.done}}")
+//					.log("Processing file ${file:onlyname}").to("direct:processXML");
+//
+//			from("direct:processXML").split().tokenizeXML("pdv").streaming().bean("transform")
+//					.log(LoggingLevel.INFO, "PDV", "${body}");
+//
+//			// from("direct:processXML").split().tokenizeXML("pdv").streaming().setHeader("city")
+//			// .xpath("/pdv/ville/text()").log("City: ${header.city}");
+//
+//			// from("direct:processXML").split().tokenizeXML("pdv").streaming().bean("transform",
+//			// "toPrice")
+//			// .to("jpa:com.pdv.project.model.Ouverture").log("Inserted new City:
+//			// ${body.id}");
+//		}
+//
+//	}
 }
