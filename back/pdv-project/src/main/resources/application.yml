@@ -1,0 +1,72 @@
+author:
+  nom:
+    key: Mohamed Lamine SYLLA 31
+    
+# Information de log (Logging)
+logging:
+  level:
+    com.pdv.project: DEBUG
+    org.springframework: INFO
+    
+# Mot de passe pour l'authentification
+security:
+  user:
+    password: sylla
+
+# Fichier xml à parser
+files:
+  base: C:\dev\pdv\data
+  in: ${files.base}\in
+  pattern: PrixCarburants_annuel_*.xml
+  done: ${files.base}\done
+
+
+# Filtrer les villes
+price.filter:
+     cities:
+          - toulouse
+          - bordeaux
+          - paris
+          - lille
+          - melun
+          - lyon
+          - bordeaux
+          - nice
+          - nantes
+          - nice
+          - caen
+          - poitiers
+          - metz
+          - yutz
+          - lille
+          - valenciennes
+          - rennes
+          - montpellier
+          - angers
+          - torcy
+          - meaux
+          - chelles
+          - lognes
+          - avon
+       
+ # Filtre des noms
+     noms:
+         - mohamed 
+         - lamine 
+         - sylla
+         - diallo
+         - camara
+         - mariame
+       
+  
+# connexion à la base de données
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pdv_develop
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+     ddl-auto: update
